@@ -1,0 +1,25 @@
+!!!
+%html{lang: "ja"}
+  %head
+    %meta{:charset => "UTF-8"}
+  %body
+    .flash-box
+
+    .wrapper
+      .chat-side
+        .side-header
+          .side-header__box
+            .side-header__box__user-name
+            %ul.side-header__box__menu
+              %li.side-header__box__menu__edit-user
+              %li.side-header__box__menu__new-group
+
+        .groups
+          - @groups[name: 1, name: 2].each do |group|
+          = group.name
+
+      .chat-main
+        .main-header
+          .main-header__left-box
+        .messages
+        .form
