@@ -15,7 +15,7 @@
 ## groupテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false|
+|group_name|string|null: false|
 
 ### Association
 - has_many :menbers
