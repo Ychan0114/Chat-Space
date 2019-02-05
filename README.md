@@ -39,7 +39,6 @@
 |image|string||
 |user_id|integer|null: false, foreign_key: true|
 |group_id|integer|null: false, foreign_key: true|
-|create_date|datetime|null: false|
 
 ### Association
 - belongs_to :user
