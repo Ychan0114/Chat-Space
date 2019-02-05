@@ -9,7 +9,7 @@
 |pass|string|null: false|
 
 ### Association
-- has_many :menbers
+- has_many :members
 - has_many :messages
 
 ## groupテーブル
@@ -18,7 +18,7 @@
 |group_name|string|null: false|
 
 ### Association
-- has_many :menbers
+- has_many :members
 - has_many :messages
 
 ## membersテーブル
