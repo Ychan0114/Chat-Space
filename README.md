@@ -4,7 +4,7 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|nickname|string|null: false|
+|nickname|string|null: false, index: true|
 
 ### Association
 - has_many :groups, through: :members
