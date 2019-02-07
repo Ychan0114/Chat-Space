@@ -57,6 +57,14 @@
           color: #999999;
         }
       }
+      .main-header__edit-btn {
+        height: 40px;
+        line-height: 40px;
+        padding: 0 20px;
+        margin-top: 30px;
+        border: solid 1px $light-blue-color;
+        color: $light-blue-color;
+      }
     }
     .messages {
       height: calc(100vh - 190px);
