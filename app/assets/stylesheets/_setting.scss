@@ -69,8 +69,15 @@
     .messages {
       height: calc(100vh - 190px);
       padding: 46px 40px;
-      background-color: #fafafa;
+      background-color: #AAAAAA;
       overflow: scroll;
+      .message {
+        padding-bottom: 40px;
+        .message__upper-info {
+          display: flex;
+          margin-bottom: 10px;
+        }
+      }
     }
     .form {
       height: 90px;
