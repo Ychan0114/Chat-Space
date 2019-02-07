@@ -12,9 +12,9 @@
             %p.side-header__box__user-name Ychan
             %ul.side-header__box__menu
               %li.side-header__box__menu__edit-user
-                %link_to{ :href => "/groups/new" }
+                %link_to{:href => "/groups/new"}
               %li.side-header__box__menu__new-group
-                %link_to{ :href => "users/current_user_id/edit" }
+                %link_to{:href => "users/current_user_id/edit"}
         .groups
           .group
             .group__group-name sample
@@ -42,3 +42,9 @@
             %p.message__text Good bye world!
 
         .form
+          %form.new_message#new_message{:enctype => "multipart/form-data", :action => "/groups/current_group_id/messages", :accept-charset => "UTF8", :method => "post"}
+            %input{:name => "utf8", :type => "hidden", :value => "✓"}
+            %input{:type => "hidden"}
+            .input-box
+              %input.input-box__text#message_content{:placeholder => "type a message", :type => "text", :name => "message[content]"}
+            %input.submit-btn{:type => "submit", :name => "commit", :value =>"Send", :data-disable-with => "Send"}
