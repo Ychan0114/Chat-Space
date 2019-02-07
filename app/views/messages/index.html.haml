@@ -9,11 +9,12 @@
       .chat-side
         .side-header
           .side-header__box
-            %p.side-header__box__user-name
+            %p.side-header__box__user-name Ychan
             %ul.side-header__box__menu
               %li.side-header__box__menu__edit-user
+                %link_to{ :href => "/groups/new" }
               %li.side-header__box__menu__new-group
-
+                %link_to{ :href => "users/current_user_id/edit" }
         .groups
 
       .chat-main
