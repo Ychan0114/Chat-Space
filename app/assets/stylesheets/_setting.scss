@@ -1,5 +1,32 @@
-.flash-box {
+@mixin flex(){
+  display: flex;
+}
+@mixin relative(){
+  position: relative;
+}
+@mixin absolute($length: 10px){
+  position: absolute;
+  top: $length;
+  right: $length;
+}
+@mixin space-between(){
+  justify-content: space-between;
+}
+@mixin overflow(){
+  overflow: scroll;
+}
+@mixin float(){
+  float: left;
+}
+@mixin cwhite(){
   color: white;
+}
+@mixin bold(){
+  font-weight: bold;
+}
+
+.flash-box {
+  @include cwhite();
   font-size: 1rem;
   font-weight: lighter;
   text-align: center;
@@ -7,33 +34,33 @@
 }
 
 .chat-side {
-  width: 300px;
-  color: white;
-  float: left;
+  width: $chat-side-width;
+  @include cwhite();
+  @include float();
   .side-header {
     background-color: #253141;
-    height: 100px;
-    display: flex;
+    height: $header-height;
+    @include flex();
     align-items: center;
     padding: 0 20px;
   }
   .side-header__box {
-    display: flex;
-    justify-content: space-between;
+    @include flex();
+    @include space-between();
     width: 100%;
-    font-weight: bold;
+    @include bold();
   }
   .side-header__box__menu {
-    display: flex;
+    @include flex();
     li {
       margin-left: 0.3rem;
     }
   }
   .groups {
-    height: calc(100vh - 100px);
+    height: calc(100vh - #{$header-height});
     background-color: #2f3e51;
     padding: 20px 20px 0;
-    overflow: scroll;
+    @include overflow();
     .group {
       margin-bottom: 40px;
     }
@@ -52,13 +79,13 @@ link_to {
 }
 
 .chat-main {
-  width: calc(100vw - 300px);
-  float: left;
+  width: calc(100vw - #{$chat-side-width});
+  @include float();
   .main-header {
-    height: 100px;
+    height: $header-height;
     padding: 0 40px;
-    display: flex;
-    justify-content: space-between;
+    @include flex();
+    @include space-between();
     border-bottom: solid 1px #eee;
   }
   .main-header__left-box {
@@ -70,7 +97,7 @@ link_to {
     margin-bottom: 15px;
   }
   .main-header__left-box__member-list {
-    display: flex;
+    @include flex();
     font-size: 12px;
     color: $sub-text-color;
   }
@@ -83,21 +110,21 @@ link_to {
     color: $light-blue-color;
   }
   .messages {
-    height: calc(100vh - 190px);
+    height: calc(100vh - #{$messages-height});
     padding: 46px 40px;
     background-color: #fafafa;
-    overflow: scroll;
+    @include overflow();
     .message {
       padding-bottom: 40px;
     }
     .message__upper-info {
-      display: flex;
+      @include flex();
       margin-bottom: 10px;
     }
     .message__upper-info__talker {
       color: $main-text-color;
       font-size: 16px;
-      font-weight: bold;
+      @include bold();
     }
     .message__upper-info__date {
       color: $sub-text-color;
@@ -112,27 +139,25 @@ link_to {
   }
 
   .form {
-    height: 90px;
+    height: $form-height;
     padding: 20px 40px;
     background-color: #ddd;
     form {
-      display: flex;
+      @include flex();
       .input-box {
-        position: relative;
-        width: 100%;
+        @include relative();
+        width: $max;
       }
       .input-box__text {
         height: 50px;
-        width: 100%;
+        width: $max;
         padding: 0 40px 0 10px;
         color: $main-text-color;
         border-style: none;
       }
       .input-box__image {
         font-size: 1.3rem;
-        position: absolute;
-        top: 10px;
-        right: 10px;
+        @include absolute();
         cursor: pointer;
       }
       .submit-btn{
@@ -141,7 +166,7 @@ link_to {
         padding: 0 30px;
         margin-left: 15px;
         background-color: $light-blue-color;
-        color: white;
+        @include cwhite();
       }
     }
   }
