@@ -9,15 +9,12 @@
           %p.side-header__box__user-name Ychan
           %ul.side-header__box__menu
             %li.side-header__box__menu__edit-user
-              %link_to{:href => "/groups/new"}
+              %link_to{:href => ""}
                 %i.fa.fa-edit
             %li.side-header__box__menu__new-group
-              %link_to{:href => "users/current_user_id/edit"}
+              %link_to{:href => ""}
                 %i.fa.fa-cog
-      .groups
-        .group
-          %p.group__group-name sample
-          %p.group__latest-message Good bye world
+      = render partial: "groups"
 
     = render partial: "message"
 
