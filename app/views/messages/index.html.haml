@@ -1,54 +1,50 @@
-!!!
-%html{lang: "ja"}
-  %head
-    %meta{:charset => "UTF-8"}
-  %body
-    .flash-box
+%body
+  .flash-box
 
-    .wrapper
-      .chat-side
-        .side-header
-          .side-header__box
-            %p.side-header__box__user-name Ychan
-            %ul.side-header__box__menu
-              %li.side-header__box__menu__edit-user
-                %link_to{:href => "/groups/new"}
-                  %i.fa.fa-edit
-              %li.side-header__box__menu__new-group
-                %link_to{:href => "users/current_user_id/edit"}
-                  %i.fa.fa-cog
-        .groups
-          .group
-            %p.group__group-name sample
-            %p.group__latest-message Good bye world
+  .wrapper
+    .chat-side
+      .side-header
+        .side-header__box
+          %p.side-header__box__user-name Ychan
+          %ul.side-header__box__menu
+            %li.side-header__box__menu__edit-user
+              %link_to{:href => "/groups/new"}
+                %i.fa.fa-edit
+            %li.side-header__box__menu__new-group
+              %link_to{:href => "users/current_user_id/edit"}
+                %i.fa.fa-cog
+      .groups
+        .group
+          %p.group__group-name sample
+          %p.group__latest-message Good bye world
 
-      .chat-main
-        .main-header
-          .main-header__left-box
-            %h2.main-header__left-box__current-group sample
-            %ul.main-header__left-box__member-list
-              Member：
-              %li.main-header__left-box__member-list__member Ychan
-          .main-header__edit-btn Edit
+    .chat-main
+      .main-header
+        .main-header__left-box
+          %h2.main-header__left-box__current-group sample
+          %ul.main-header__left-box__member-list
+            Member：
+            %li.main-header__left-box__member-list__member Ychan
+        .main-header__edit-btn Edit
 
-        .messages
-          .message
-            .message__upper-info
-              %p.message__upper-info__talker Ychan
-              %p.message__upper-info__date 2019/02/07(Thu) 20:12:00
-            %p.message__text Hello world!
-          .message
-            .message__upper-info
-              %p.message__upper-info__talker Ychan
-              %p.message__upper-info__date 2019/02/07(Thu) 20:18:00
-            %p.message__text Good bye world!
+      .messages
+        .message
+          .message__upper-info
+            %p.message__upper-info__talker Ychan
+            %p.message__upper-info__date 2019/02/07(Thu) 20:12:00
+          %p.message__text Hello world!
+        .message
+          .message__upper-info
+            %p.message__upper-info__talker Ychan
+            %p.message__upper-info__date 2019/02/07(Thu) 20:18:00
+          %p.message__text Good bye world!
 
-        .form
-          %form.new_message#new_message{:enctype => "multipart/form-data", :action => "/groups/current_group_id/messages", :accept-charset => "UTF8", :method => "post"}
-            %input{:name => "utf8", :type => "hidden", :value => "✓"}
-            %input{:type => "hidden"}
-            .input-box
-              %input.input-box__text#message_content{:placeholder => "type a message", :type => "text", :name => "message[content]"}
-              %label.input-box__image{:for => "message_image"}
-                %i.fa.fa-image
-            %input.submit-btn{:type => "submit", :name => "commit", :value =>"Send", :data-disable-with => "Send"}
+      .form
+        %form.new_message#new_message{:enctype => "multipart/form-data", :action => "/groups/current_group_id/messages", :accept-charset => "UTF8", :method => "post"}
+          %input{:name => "utf8", :type => "hidden", :value => "✓"}
+          %input{:type => "hidden"}
+          .input-box
+            %input.input-box__text#message_content{:placeholder => "type a message", :type => "text", :name => "message[content]"}
+            %label.input-box__image{:for => "message_image"}
+              %i.fa.fa-image
+          %input.submit-btn{:type => "submit", :name => "commit", :value =>"Send", :data-disable-with => "Send"}
