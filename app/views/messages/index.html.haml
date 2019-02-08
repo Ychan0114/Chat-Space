@@ -49,4 +49,6 @@
             %input{:type => "hidden"}
             .input-box
               %input.input-box__text#message_content{:placeholder => "type a message", :type => "text", :name => "message[content]"}
+              %label.input-box__image{:for => "message_image"}
+                %i.fa.fa-image
             %input.submit-btn{:type => "submit", :name => "commit", :value =>"Send", :data-disable-with => "Send"}

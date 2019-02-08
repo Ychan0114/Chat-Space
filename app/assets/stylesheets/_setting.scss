@@ -127,6 +127,13 @@ link_to {
           color: $main-text-color;
           border-style: none;
         }
+        .input-box__image {
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+        }
       }
       .submit-btn{
         width: 100px;
