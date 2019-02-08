@@ -31,6 +31,9 @@
   font-weight: lighter;
   text-align: center;
   width: 100vw;
+  .notice {
+    background-color: $light-blue-color;
+  }
 }
 
 .chat-side {
