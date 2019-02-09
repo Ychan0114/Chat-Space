@@ -32,7 +32,7 @@
   text-align: center;
   width: 100vw;
   .notice {
-    background-color: $light-blue-color;
+    background-color: $light-blue;
   }
 }
 
@@ -112,8 +112,8 @@ link_to {
       line-height: 40px;
       padding: 0 20px;
       margin-top: 30px;
-      border: solid 1px $light-blue-color;
-      color: $light-blue-color;
+      border: solid 1px $light-blue;
+      color: $light-blue;
     }
   }
   .messages {
@@ -172,7 +172,7 @@ link_to {
         height: 50px;
         padding: 0 30px;
         margin-left: 15px;
-        background-color: $light-blue-color;
+        background-color: $light-blue;
         @include cwhite();
       }
     }
