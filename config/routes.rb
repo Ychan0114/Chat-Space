@@ -3,5 +3,5 @@ Rails.application.routes.draw do
   resources :messages, only: [:show, :new, :create]
   resources :users, only: [:edit, :update]
 
-    root :to => 'messages#index'
+  root :to => 'messages#index'
 end
