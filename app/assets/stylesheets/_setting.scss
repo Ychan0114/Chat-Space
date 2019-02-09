@@ -40,6 +40,9 @@
   width: $chat-side-width;
   @include cwhite();
   @include float();
+  a {
+    @include cwhite();
+  }
   .side-header {
     background-color: #253141;
     height: $header-height;
