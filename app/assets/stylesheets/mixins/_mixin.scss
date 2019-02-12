@@ -1,0 +1,26 @@
+@mixin flexbox(){
+  display: flex;
+}
+@mixin relative(){
+  position: relative;
+}
+@mixin absolute($length: 10px){
+  position: absolute;
+  top: $length;
+  right: $length;
+}
+@mixin space-between(){
+  justify-content: space-between;
+}
+@mixin overflow(){
+  overflow: scroll;
+}
+@mixin float(){
+  float: left;
+}
+@mixin cwhite(){
+  color: white;
+}
+@mixin bold(){
+  font-weight: bold;
+}
