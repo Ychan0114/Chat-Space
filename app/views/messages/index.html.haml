@@ -1,3 +1,31 @@
 .wrapper
   = render partial: "shared/side-bar"
-  = render partial: "message"
+  .chat-main
+    .main-header
+      .main-header__left-box
+        %h2.main-header__left-box__current-group sample
+        %ul.main-header__left-box__member-list
+          Member：
+          %li.main-header__left-box__member-list__member Ychan
+      .main-header__edit-btn Edit
+
+    .messages
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker Ychan
+          %p.message__upper-info__date 2019/02/07(Thu) 20:12:00
+        %p.message__text Hello world!
+      .message
+        .message__upper-info
+          %p.message__upper-info__talker Ychan
+          %p.message__upper-info__date 2019/02/07(Thu) 20:18:00
+        %p.message__text Good bye world!
+
+    .form
+      = form_for [@group, @message] do |f|
+        = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+        .form__mask
+          = f.label :image, class: 'form__mask__image' do
+            = fa_icon 'picture-o', class: 'icon'
+            = f.file_field :image, class: 'hidden'
+        = f.submit 'Send', class: 'form__submit'
