@@ -3,10 +3,13 @@
   .chat-main
     .main-header
       .main-header__left-box
-        %h2.main-header__left-box__current-group sample
+        %h2.main-header__left-box__current-group
+          = @group.name
         %ul.main-header__left-box__member-list
           Member：
-          %li.main-header__left-box__member-list__member Ychan
+          - @group.users.each do |user|
+            %li.main-header__left-box__member-list__member
+              = user.name
       .main-header__edit-btn Edit
 
     .messages

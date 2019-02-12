@@ -1,22 +1,23 @@
-.chat {
+.chat-main {
   width: calc(100% - 300px);
-  .header {
+  .main-header {
     box-sizing: border-box;
     height: 100px;
     padding: 0 40px;
-    .left-header {
+    &__left-box {
       float: left;
-      &__title {
+      margin-top: 35px;
+      &__current-group {
         color: #333;
         font-size: 20px;
-        margin-top: 35px;
+        margin-bottom: 15px;
       }
-      &__members {
+      &__member-list {
         @include flexbox;
         color: $light_gray;
         font-size: 12px;
         margin-top: 15px;
-        .member {
+        &__member {
           display: inline-block;
           padding-right: 5px;
         }
