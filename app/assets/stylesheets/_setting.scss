@@ -1,30 +1,3 @@
-@mixin flex(){
-  display: flex;
-}
-@mixin relative(){
-  position: relative;
-}
-@mixin absolute($length: 10px){
-  position: absolute;
-  top: $length;
-  right: $length;
-}
-@mixin space-between(){
-  justify-content: space-between;
-}
-@mixin overflow(){
-  overflow: scroll;
-}
-@mixin float(){
-  float: left;
-}
-@mixin cwhite(){
-  color: white;
-}
-@mixin bold(){
-  font-weight: bold;
-}
-
 .flash-box {
   @include cwhite();
   font-size: 1rem;
@@ -46,16 +19,16 @@
   .side-header {
     background-color: #253141;
     height: $header-height;
-    @include flex();
+    @include flexbox();
     align-items: center;
     padding: 0 20px;
     &__box {
-      @include flex();
+      @include flexbox();
       @include space-between();
       width: 100%;
       @include bold();
       &__menu {
-        @include flex();
+        @include flexbox();
         li {
           margin-left: 0.3rem;
         }
@@ -91,7 +64,7 @@ link_to {
   .main-header {
     height: $header-height;
     padding: 0 40px;
-    @include flex();
+    @include flexbox();
     @include space-between();
     border-bottom: solid 1px #eee;
     &__left-box {
@@ -102,9 +75,9 @@ link_to {
         margin-bottom: 15px;
       }
       &__member-list {
-        @include flex();
+        @include flexbox();
         font-size: 12px;
-        color: $sub-text-color;
+        color: $light_gray;
       }
     }
     &__edit-btn {
@@ -124,21 +97,21 @@ link_to {
     .message {
       padding-bottom: 40px;
       &__upper-info {
-        @include flex();
+        @include flexbox();
         margin-bottom: 10px;
         &__talker {
-          color: $main-text-color;
+          color: $black;
           font-size: 16px;
           @include bold();
         }
         &__date {
-          color: $sub-text-color;
+          color: $light_gray;
           font-size: 12px;
           margin-left: 10px;
         }
       }
       &__text {
-        color: $main-text-color;
+        color: $black;
         font-size: 14px;
         margin-bottom: 10px;
       }
@@ -150,7 +123,7 @@ link_to {
     padding: 20px 40px;
     background-color: #ddd;
     form {
-      @include flex();
+      @include flexbox();
       .input-box {
         @include relative();
         width: $max;
@@ -158,7 +131,7 @@ link_to {
           height: 50px;
           width: $max;
           padding: 0 40px 0 10px;
-          color: $main-text-color;
+          color: $black;
           border-style: none;
         }
         &__image {
