@@ -8,5 +8,6 @@ class User < ApplicationRecord
   has_many :groups, through: :group_users
   has_many :massages
 
-  validates :nickname, presence: true, length: { maximum: 6 }
+  validates :name, presence: true, length: { maximum: 6 }
+  validates :email, presence: true
 end
