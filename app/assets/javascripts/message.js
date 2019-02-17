@@ -1,4 +1,13 @@
 $(function(){
+  function buildHTML(message){
+    var html = `<p>
+                  ${message.user.name}
+                  ${message.created_at}
+                  ${message.content}
+                  ${message.image}
+                </p>`
+    return html;
+  }
   $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
