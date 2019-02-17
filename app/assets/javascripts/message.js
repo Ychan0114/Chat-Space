@@ -1,10 +1,20 @@
 $(function(){
   function buildHTML(message){
     var html = `<p>
-                  ${message.user.name}
-                  ${message.created_at}
-                  ${message.content}
-                  ${message.image}
+                  <div class="message__upper-info">
+                    <div class="message__upper-info__talker">
+                      ${message.user_name}
+                    </div>
+                    <div class="message__upper-info__date">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="message__upper-info__text">
+                    <p class="message__upper-info__text__content">
+                      ${message.content}
+                    </p>
+                    <img class="lower-message__image" src="${ message.image }">
+                  </div>
                 </p>`
     return html;
   }
@@ -23,7 +33,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      $('.textbox').val('');
+      $('.form__message').val('');
     })
   });
 });
