@@ -36,5 +36,8 @@ $(function(){
       $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('.form__message').val('');
     })
+    .fail(function(){
+      alert('error');
+    })
   });
 });
