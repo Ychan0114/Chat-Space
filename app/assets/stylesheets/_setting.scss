@@ -105,10 +105,8 @@ link_to {
         border-style: none;
       }
       .form__mask {
-        @include relative();
-        .form__mask__image {
+        &__image {
           font-size: 1.3rem;
-          @include absolute();
           cursor: pointer;
           .hidden {
             display: none;
