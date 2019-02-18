@@ -9,14 +9,31 @@ $(function(){
                       ${message.created_at}
                     </div>
                   </div>
-                  <div class="message__upper-info__text">
-                    <p class="message__upper-info__text__content">
-                      ${message.content}
-                    </p>
-                    <img class="lower-message__image" src="${ message.image }">
-                  </div>
                 </p>`
     return html;
+  }
+
+  function appendText(message) {
+   var html = `<p>
+                <div class="message__upper-info__text">
+                  <p class="message__upper-info__text__content">
+                    ${message.content}
+                  </p>
+                </div>
+              </p>`
+   $('.messages').append(html);
+  }
+
+  function appendMessage(message) {
+   var html = `<p>
+                <div class="message__upper-info__text">
+                  <p class="message__upper-info__text__content">
+                    ${message.content}
+                  </p>
+                  <img class="lower-message__image" src="${ message.image }">
+                </div>
+              </p>`
+   $('.messages').append(html);
   }
 
   $('#new_message').on('submit', function(e){
@@ -35,7 +52,7 @@ $(function(){
     .done(function(data){
       var html = buildHTML(data);
       $('.messages').append(html);
-      if (data.image == '') {
+      if (data.image == null) {
         appendText(data);
       } else {
         appendMessage(data);
