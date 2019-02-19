@@ -1,0 +1,5 @@
+$(function() {
+  $(".group-form__input").on("keyup", function() {
+    var input = $(".group-form__input").val();
+  });
+});
