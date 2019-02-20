@@ -15,6 +15,17 @@ $(function() {
     $("#user-search-result").append(html);
   }
 
+  function appendMember(user) {
+    var userName=$(user).data("userName");
+    var userId=$(user).data(userId);
+    var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
+                  <input name='group[user_ids][]' type='hidden' value='${userId}'>
+                  <p class='chat-group-user__name'>${userName}</p>
+                  <a class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</a>
+                </div>`
+    $("#chat-group-users").append(html)
+  }
+
   $(".group-form__input").on("keyup", function() {
     var input = $(".group-form__input").val();
 
@@ -43,6 +54,8 @@ $(function() {
   });
 
   $(document).on("click", ".user-search-add", function() {
-    console.log("クリックされました");
+    var user = $(this);
+    $($(this).parent()).hide();
+    appendMember($(user));
   });
 });
