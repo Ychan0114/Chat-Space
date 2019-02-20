@@ -3,10 +3,10 @@ $(function() {
   function appendUser(user) {
     var html = `<div class="chat-group-user clearfix">
                   <p class="chat-group-user__name">${user.name}</p>
-                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="ユーザーのid" data-user-name="ユーザー名">追加</a>
+                  <a class="user-search-add chat-group-user__btn chat-group-user__btn--add" data-user-id="${user.id}" data-user-name="${user.name}">追加</a>
                 </div>`
     $("#user-search-result").append(html);
-  }
+  };
 
   function appendNoUser(user) {
     var html = `<div class="chat-group-user clearfix">
@@ -35,6 +35,14 @@ $(function() {
       else {
         appendNoUser("一致するユーザーが見つかりません");
       }
+    })
+
+    .fail(function() {
+      alert('ユーザー検索に失敗しました');
     });
+  });
+
+  $(document).on("click", ".user-search-add", function() {
+    console.log("クリックされました");
   });
 });
