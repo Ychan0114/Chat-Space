@@ -55,7 +55,11 @@ $(function() {
 
   $(document).on("click", ".user-search-add", function() {
     var user = $(this);
-    $($(this).parent()).hide();
+    $(this).parent().hide();
     appendMember($(user));
+  });
+
+  $(document).on("click", ".user-search-remove", function() {
+    $(this).parent().hide();
   });
 });
