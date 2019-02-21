@@ -24,14 +24,9 @@
     .chat-group-form__field--right
       #chat-group-users
         - group.users.each do |user|
-          - if (user == current_user)
-            #chat-group-user-22.chat-group-user.clearfix
-              %input{:name => "group[user_ids][]", :type => "hidden", :value => "#{user.id}"}/
-              %p.chat-group-user__name #{current_user.name}
-          - else
-            #chat-group-user-22.chat-group-user.clearfix
-              %input{:name => "group[user_ids][]", :type => "hidden", :value => "#{user.id}"}/
-              %p.chat-group-user__name #{user.name}
+          #chat-group-user-22.chat-group-user.clearfix
+            %input{:name => "group[user_ids][]", :type => "hidden", :value => "#{user.id}"}/
+            %p.chat-group-user__name #{user.name}
 
   .chat-group-form__field.clearfix
     .chat-group-form__field--left
