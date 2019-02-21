@@ -16,8 +16,8 @@ $(function() {
   }
 
   function appendMember(user) {
-    var userName=$(user).data("userName");
-    var userId=$(user).data(userId);
+    var userName=$(user).data("user-name");
+    var userId=$(user).data("user-id");
     var html = `<div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
                   <input name='group[user_ids][]' type='hidden' value='${userId}'>
                   <p class='chat-group-user__name'>${userName}</p>
@@ -56,7 +56,7 @@ $(function() {
   $(document).on("click", ".user-search-add", function() {
     var user = $(this);
     $(this).parent().hide();
-    appendMember($(user));
+    appendMember(user);
   })
 
   .on("click", ".user-search-remove", function() {
