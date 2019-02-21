@@ -29,28 +29,33 @@ $(function() {
   $(".group-form__input").on("keyup", function() {
     var input = $(".group-form__input").val();
 
-    $.ajax({
-      type: 'GET',
-      url: '/users',
-      data: { keyword: input },
-      dataType: 'json'
-    })
+    if (input !== "") {
+      $.ajax({
+        type: 'GET',
+        url: '/users',
+        data: { keyword: input },
+        dataType: 'json'
+      })
 
-    .done(function(users) {
+      .done(function(users) {
+        $("#user-search-result").empty();
+        if (users.length !== 0) {
+          users.forEach(function(user){
+            appendUser(user);
+          });
+        }
+        else {
+          appendNoUser("一致するユーザーが見つかりません");
+        }
+      })
+
+      .fail(function() {
+        alert('ユーザー検索に失敗しました');
+      });
+    }
+    else {
       $("#user-search-result").empty();
-      if (users.length !== 0) {
-        users.forEach(function(user){
-          appendUser(user);
-        });
-      }
-      else {
-        appendNoUser("一致するユーザーが見つかりません");
-      }
-    })
-
-    .fail(function() {
-      alert('ユーザー検索に失敗しました');
-    });
+    }
   });
 
   $(document).on("click", ".user-search-add", function() {
