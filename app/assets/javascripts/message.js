@@ -67,4 +67,9 @@ $(function(){
       alert('error');
     });
   });
+
+  $(function(){
+    setInterval(update, 5000);
+  });
+
 });
