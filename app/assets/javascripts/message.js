@@ -76,6 +76,14 @@ $(function(){
     function update(){
       var message_id = $('.message:last').data('id');
       var url = $(this).attr('action');
+      $.ajax({
+        url :url,
+        type: 'GET',
+        data: {
+          message: { id: message_id }
+        },
+        dataType: 'json'
+      })
     }
   });
 });
