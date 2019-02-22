@@ -75,6 +75,7 @@ $(function(){
 
     function update(){
       var message_id = $('.message:last').data('id');
+      var url = $(this).attr('action');
     }
   });
 });
