@@ -72,37 +72,33 @@ $(function(){
     });
   });
 
-  $(function(){
-    $(function(){
-      setInterval(update, 5000);
-    });
+  setInterval(update, 5000);
 
-    function update(){
-      if($('.message')[0]){
-        var message_id = $('.message:last').data('id');
-        var url = $(this).attr('action');
-      } else {
-        var message_id = 0;
-      }
-
-      $.ajax({
-        url: url,
-        type: 'GET',
-        data: {
-          message: { id: message_id }
-        },
-        dataType: 'json'
-      })
-
-      .done(function(data){
-        $.each(data, function(i, data){
-          if (data.image == null) {
-            appendText(data);
-          } else {
-            appendMessage(data);
-          }
-        });
-      });
+  function update(){
+    if($('.message')[0]){
+      var message_id = $('.message:last').data('id');
+      var url = $(this).attr('action');
+    } else {
+      var message_id = 0;
     }
-  });
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {
+        message: { id: message_id }
+      },
+      dataType: 'json'
+    })
+
+    .done(function(data){
+      $.each(data, function(i, data){
+        if (data.image == null) {
+          appendText(data);
+        } else {
+          appendMessage(data);
+        }
+      });
+    });
+  }
 });
