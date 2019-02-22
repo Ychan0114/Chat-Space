@@ -1,6 +1,7 @@
 $(function(){
-  function buildHTML(message){
-    var html = `<p>
+  function appendText(message) {
+   var html = `<p>
+                <div class="message" data-id = ${message.id} >
                   <div class="message__upper-info">
                     <div class="message__upper-info__talker">
                       ${message.user_name}
@@ -9,16 +10,11 @@ $(function(){
                       ${message.created_at}
                     </div>
                   </div>
-                </p>`
-    return html;
-  }
-
-  function appendText(message) {
-   var html = `<p>
-                <div class="message__upper-info__text">
-                  <p class="message__upper-info__text__content">
-                    ${message.content}
-                  </p>
+                  <div class="message__upper-info__text">
+                    <p class="message__upper-info__text__content">
+                      ${message.content}
+                    </p>
+                  </div>
                 </div>
               </p>`
    $('.messages').append(html);
@@ -26,11 +22,21 @@ $(function(){
 
   function appendMessage(message) {
    var html = `<p>
-                <div class="message__upper-info__text">
-                  <p class="message__upper-info__text__content">
-                    ${message.content}
-                  </p>
-                  <img class="lower-message__image" src="${ message.image }">
+                <div class="message" data-id = ${message.id} >
+                  <div class="message__upper-info">
+                    <div class="message__upper-info__talker">
+                      ${message.user_name}
+                    </div>
+                    <div class="message__upper-info__date">
+                      ${message.created_at}
+                    </div>
+                  </div>
+                  <div class="message__upper-info__text">
+                    <p class="message__upper-info__text__content">
+                      ${message.content}
+                    </p>
+                    <img class="lower-message__image" src="${ message.image }">
+                  </div>
                 </div>
               </p>`
    $('.messages').append(html);
@@ -50,8 +56,6 @@ $(function(){
     })
 
     .done(function(data){
-      var html = buildHTML(data);
-      $('.messages').append(html);
       if (data.image == null) {
         appendText(data);
       } else {
@@ -67,4 +71,34 @@ $(function(){
       alert('error');
     });
   });
+
+  setInterval(update, 5000);
+
+  function update(){
+    if($('.message')[0]){
+      var message_id = $('.message:last').data('id');
+      var url = $(this).attr('action');
+    } else {
+      var message_id = 0;
+    }
+
+    $.ajax({
+      url: url,
+      type: 'GET',
+      data: {
+        message: { id: message_id }
+      },
+      dataType: 'json'
+    })
+
+    .done(function(data){
+      $.each(data, function(i, data){
+        if (data.image == null) {
+          appendText(data);
+        } else {
+          appendMessage(data);
+        }
+      });
+    });
+  }
 });
