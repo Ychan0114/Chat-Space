@@ -73,6 +73,8 @@ $(function(){
       setInterval(update, 5000);
     });
 
-    function update(){}
+    function update(){
+      var message_id = $('.message:last').data('id');
+    }
   });
 });
