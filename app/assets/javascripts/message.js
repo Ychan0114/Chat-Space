@@ -95,7 +95,6 @@ $(function(){
       })
 
       .done(function(data){
-        console.log("更新されました");
         $.each(data, function(i, data){
           if (data.image == null) {
             appendText(data);
