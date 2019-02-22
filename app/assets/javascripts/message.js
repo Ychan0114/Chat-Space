@@ -69,7 +69,10 @@ $(function(){
   });
 
   $(function(){
-    setInterval(update, 5000);
-  });
+    $(function(){
+      setInterval(update, 5000);
+    });
 
+    function update(){}
+  });
 });
