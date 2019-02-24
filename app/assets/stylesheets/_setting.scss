@@ -39,6 +39,9 @@ link_to {
     @include flexbox();
     @include space-between();
     border-bottom: solid 1px #eee;
+    a {
+      text-decoration: none;
+    }
     &__left-box {
       margin-top: 35px;
       &__current-group {
