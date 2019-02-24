@@ -37,7 +37,7 @@ $(function() {
     $("#user-search-result").append(html);
   };
 
-  $(".group-form__input").on("keyup", function() {
+  $(".group-form__input").on('turbolinks:load', "keyup", function() {
     var input = $(".group-form__input").val();
 
     if (input !== "") {
