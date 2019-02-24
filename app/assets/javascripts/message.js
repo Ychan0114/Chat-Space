@@ -56,12 +56,15 @@ $(function(){
     })
 
     .done(function(data){
-      if (data.image == null) {
+      if (data.image == null && data.content == null) {
+        alert('メッセージを入力してください');
+      } else if(data.image == null) {
         appendText(data);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       } else {
         appendMessage(data);
+        $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       }
-      $('.messages').animate({scrollTop: $('.messages')[0].scrollHeight}, 'fast');
       $('input[type=reset]', function(){
         $("form")[0].reset();
       });
@@ -70,6 +73,8 @@ $(function(){
     .fail(function(){
       alert('error');
     });
+
+    return false;
   });
 
   setInterval(update, 5000);
