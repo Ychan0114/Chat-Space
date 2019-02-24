@@ -1,4 +1,6 @@
 $(function(){
+  $(document).on('turbolinks:load', function() {});
+
   function appendText(message) {
    var html = `<p>
                 <div class="message" data-id = ${message.id} >
